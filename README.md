@@ -1,14 +1,38 @@
-# Salesforce DX Project: Next Steps
+Visualforce Challenges for Revature Salesforce training
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Challenge I -attempted
+Create a Visualforce page that displays a single Account, specified as a parameter in the URL.
 
-## How Do You Plan to Deploy Your Changes?
+Challenge II -not complete
+Modify your Visualforce page to display a paginated table of Accounts.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Challenge III -not complete
+Modify your Visualforce page to display a single Account, but this time the Account should always be the same, regardless of the parameter in the URL. You may not use a Standard Controller.
 
-## Configure Your Salesforce DX Project
+Challenge IV -attempted
+Add to your Visualforce page an About Me section. This should simply be a paragraph about yourself. However, this paragraph should be translated to Spanish if the current viewing user has their language set to Spanish. Download this creation as a PDF.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+
+I.
+
+public with sharing class AccountController {
+    public Account account { get; private set; }
+
+    public AccountController() {
+        // Get the account ID from the URL
+        Id accountId = ApexPages.currentPage().getParameters().get('id');
+
+        // if the account ID is not null
+        if (accountId != null) {
+            // Query the Account record
+            account = [SELECT Id, Name, Phone, Industry, BillingCity, BillingState FROM Account WHERE Id = :accountId LIMIT 1];
+        } else {
+            // If ID is not provided / invalid
+            account = new Account();
+        }
+    }
+}
+
 
 ## Read All About It
 
@@ -16,3 +40,9 @@ The `sfdx-project.json` file contains useful configuration information for your 
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 - [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
 - [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+
+- https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_config_for_app_builder.htm
+
+- https://salesforcediaries.com/2019/09/16/passing-value-from-lwc-to-parent-aura-component/
+
+- https://www.greytrix.com/blogs/salesforce/2021/02/12/using-aura-method-to-pass-value-from-child-component-to-parent-component-with-example/
