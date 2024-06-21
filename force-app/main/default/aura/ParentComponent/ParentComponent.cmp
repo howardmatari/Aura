@@ -4,11 +4,6 @@
 	<aura:attribute name="PersonNameParam" type="String" default="Matari"/> 
 </aura:method>
 <c:ChildComponent parent="{!this}">
-<!-- parent.cmp -->
-<!--<aura:handler name="sampleComponentEvent" event="c:compEvent"
-    action="{!c.callParentMethod}" ChildComponentEvent="{!c.handleChildEvent}" /> -->
 </c:ChildComponent> 
-
-   
 
 </aura:component>
