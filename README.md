@@ -33,8 +33,10 @@ public with sharing class AccountController {
     }
 }
 
+Part II of Challenge -Aura
+-Aura I made an attempt at compomenet communication.  I did my learning with child to parent communication for child to parent using an Aura component hostLWC and child lightning web component inputLWC.  My communication attempt with two Aura components is a work in profress.  My learning consisted of creating two Aura components called Child Component and ParentComponent.
 
-## Read All About It
+## Resources
 
 - [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
